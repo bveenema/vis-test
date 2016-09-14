@@ -1,0 +1,173 @@
+{
+	"dataPoints":[
+		{
+			"date": "2016-09-14T12:49:15Z",
+			"value": 65,
+			"type": "temperature",
+			"unit": "farenheit",
+			"sensor": {
+				"id": 12345678901234561234567890123456,
+				"name": "Captain Greybeard",
+				"type": "floating thermometer",
+				"location": {
+					"description": "Garage",
+					"lat": 41.381494, 
+					"long": 64.584042
+				}
+			}
+		},
+		{
+			"date": "2016-09-14T13:49:15Z",
+			"value": 66,
+			"type": "temperature",
+			"unit": "farenheit",
+			"sensor": {
+				"id": 12345678901234561234567890123456,
+				"name": "Captain Greybeard",
+				"type": "floating thermometer",
+				"location": {
+					"description": "Garage",
+					"lat": 41.381494, 
+					"long": 64.584042
+				}
+
+			}
+		},
+		{
+			"date": "2016-09-14T14:49:15Z",
+			"value": 67,
+			"type": "temperature",
+			"unit": "farenheit",
+			"sensor": {
+				"id": 12345678901234561234567890123456,
+				"name": "Captain Greybeard",
+				"type": "floating thermometer",
+				"location": {
+					"description": "Garage",
+					"lat": 41.381494, 
+					"long": 64.584042
+				}
+
+			}
+		},
+		{
+			"date": "2016-09-14T15:49:15Z",
+			"value": 68,
+			"type": "temperature",
+			"unit": "farenheit",
+			"sensor": {
+				"id": 12345678901234561234567890123456,
+				"name": "Captain Greybeard",
+				"type": "floating thermometer",
+				"location": {
+					"description": "Garage",
+					"lat": 41.381494, 
+					"long": 64.584042
+				}
+
+			}
+		},
+		{
+			"date": "2016-09-14T16:49:15Z",
+			"value": 69,
+			"type": "temperature",
+			"unit": "farenheit",
+			"sensor": {
+				"id": 12345678901234561234567890123456,
+				"name": "Captain Greybeard",
+				"type": "floating thermometer",
+				"location": {
+					"description": "Garage",
+					"lat": 41.381494, 
+					"long": 64.584042
+				}
+
+			}
+		},
+		{
+			"date": "2016-09-14T17:49:15Z",
+			"value": 70,
+			"type": "temperature",
+			"unit": "farenheit",
+			"sensor": {
+				"id": 12345678901234561234567890123456,
+				"name": "Captain Greybeard",
+				"type": "floating thermometer",
+				"location": {
+					"description": "Garage",
+					"lat": 41.381494, 
+					"long": 64.584042
+				}
+
+			}
+		},
+		{
+			"date": "2016-09-14T18:49:15Z",
+			"value": 70.5,
+			"type": "temperature",
+			"unit": "farenheit",
+			"sensor": {
+				"id": 12345678901234561234567890123456,
+				"name": "Captain Greybeard",
+				"type": "floating thermometer",
+				"location": {
+					"description": "Garage",
+					"lat": 41.381494, 
+					"long": 64.584042
+				}
+
+			}
+		},
+		{
+			"date": "2016-09-14T19:49:15Z",
+			"value": 71,
+			"type": "temperature",
+			"unit": "farenheit",
+			"sensor": {
+				"id": 12345678901234561234567890123456,
+				"name": "Captain Greybeard",
+				"type": "floating thermometer",
+				"location": {
+					"description": "Garage",
+					"lat": 41.381494, 
+					"long": 64.584042
+				}
+
+			}
+		},
+		{
+			"date": "2016-09-14T20:49:15Z",
+			"value": 71.25,
+			"type": "temperature",
+			"unit": "farenheit",
+			"sensor": {
+				"id": 12345678901234561234567890123456,
+				"name": "Captain Greybeard",
+				"type": "floating thermometer",
+				"location": {
+					"description": "Garage",
+					"lat": 41.381494, 
+					"long": 64.584042
+				}
+
+			}
+		},
+		{
+			"date": "2016-09-14T21:49:15Z",
+			"value": 71.5,
+			"type": "temperature",
+			"unit": "farenheit",
+			"sensor": {
+				"id": 12345678901234561234567890123456,
+				"name": "Captain Greybeard",
+				"type": "floating thermometer",
+				"location": {
+					"description": "Garage",
+					"lat": 41.381494, 
+					"long": 64.584042
+				}
+
+			}
+		}
+	]
+}
