@@ -105,8 +105,18 @@ d3.json('mock/data.json', function(error, data) {
       .style('display', 'none');
   });
 
+// Add click event handler
+	dataPoints.on("click", function(d, i){
+		if (d3.event.defaultPrevented) return;
+		console.log("clicked");
+		d3.select(this)
+			.select('circle')
+			.style('fill', 'red');
+	});
+
 // Attach the drag behavior to the data points
 	dataPoints.call(dataDrag);
+
 });
 
 
@@ -114,6 +124,8 @@ d3.json('mock/data.json', function(error, data) {
 //Makes the circle radius 15% larger while dragging
 function dragStart(d) {
   d3.event.sourceEvent.stopPropagation();
+  d3.event.sourceEvent.preventDefault();
+  console.log('dragStart');
   d3.select(this)
      .select('circle')
      .attr('r', defaultRadius*1.15);
@@ -125,6 +137,7 @@ function dragStart(d) {
 //the new data value and date, updating the text in the group,
 //and recalculating the fit line
 function dragging(d) {
+	console.log('dragging');
   d.x = d3.event.x;
   d.y = d3.event.y;
   d3.select(this)
@@ -147,6 +160,7 @@ function dragging(d) {
 //Takes the new data point and sends it to the server(TODO) or console(CURRENT)
 //Reduces the circle radius back to its original size
 function dragEnd(d){
+	console.log('dragEnd');
 	d3.select(this)
 		.select('circle')
 		.attr('r',defaultRadius);
