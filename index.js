@@ -23,6 +23,12 @@ let viz = d3.select("#viz-wrapper")
 let xAxis = d3.axisBottom(xScale).ticks(5);
 let yAxis = d3.axisLeft(yScale).ticks(5);
 
+// Setup the trendline
+let trendline = d3.line()
+  .x(function(d) { return xScale(d3.isoParse(d.date)); })
+  .y(function(d) { return yScale(d.value); })
+  .curve(d3.curveMonotoneX);
+
 // Setup the drag behavior
 let dataDrag = d3.drag()
 								.on('start', dragStart)
@@ -54,13 +60,22 @@ d3.json('mock/data.json', function(error, data) {
   viz.append("g")
     .attr("class", "y axis")
     .call(yAxis);
+
+// Add the trendline
+	viz.append('path')
+		.data([data])
+		.attr('class', 'trendline')
+		.attr('d', trendline)
+		.style('fill', 'none')
+		.style('stroke', 'black');
   
 // Add the dots
   let dataPoints = viz.selectAll('g.data-point')
               .data(data)
               .enter()
               .append('g')
-              .attr('class', 'foo');
+              .attr('class', 'data-point');
+  
   dataPoints.attr('transform', function(d){
 	  	x = xScale(d3.isoParse(d.date));
 	  	y = yScale(d.value);
@@ -68,7 +83,9 @@ d3.json('mock/data.json', function(error, data) {
 	  })
   	.style('stroke', 'none')
 		.style('fill', 'blue');
+	
 	dataPoints.append('circle').attr('r', defaultRadius);
+	
 	dataPoints.append('text')
 		.text(function(d){return d.value})
 		.attr('transform','translate(5,5)')
@@ -100,14 +117,13 @@ function dragStart(d) {
   d3.select(this)
      .select('circle')
      .attr('r', defaultRadius*1.15);
-
- console.log(d);
 };
 
 //Function: dragging(d)
 //Takes the datum and applies the new event coordinates
 //Moves the dataPoint to the new datum and calculates
-//the new data value and date, updating the text in the group
+//the new data value and date, updating the text in the group,
+//and recalculating the fit line
 function dragging(d) {
   d.x = d3.event.x;
   d.y = d3.event.y;
@@ -118,9 +134,13 @@ function dragging(d) {
   date = xScale.invert(d3.event.x);
   d.date = d3.isoFormat(date);
   d.value = yScale.invert(d3.event.y);
+  //update text
   d3.select(this)
  		.select('text')
  		.text(d.value);
+ 	//recalculate trendline
+ 	d3.select('.trendline')
+ 		.attr('d', trendline);
 };
 
 //Function: dragEnd(d)
