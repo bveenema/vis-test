@@ -1,0 +1,22 @@
+.hide {
+	visibility: hidden;
+}
+.show {
+	visibility: visible;
+}
+
+.data-point circle {
+	fill: blue;
+}
+
+.data-point circle.selected {
+	fill: red;
+}
+
+.data-point circle:hover {
+	cursor: pointer;
+}
+
+.tooltip text {
+	fill: green;
+}
