@@ -17,10 +17,4 @@ module.exports = {
              }
         ]
     },
-
-    // plugins: [
-    //     new webpack.ProvidePlugin({
-    //         d3: 'd3',
-    //     })
-    // ]
 };

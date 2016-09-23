@@ -205,7 +205,7 @@ function dragging(d) {
                      d.y + ')');
   let date = xScale.invert(d3.event.x);
   d.date = d3.isoFormat(date);
-  d.value = yScale.invert(d3.event.y);
+  d.value = parseFloat((yScale.invert(d3.event.y)).toFixed(2));
   //update text
   d3.select(this)
  		.select('text')
