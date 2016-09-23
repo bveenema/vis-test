@@ -1,3 +1,5 @@
+var d3 = require('d3');
+
 let height = 500,
     width = 800;
 
@@ -81,8 +83,8 @@ d3.json('mock/data.json', function(error, data) {
               .attr('class', 'data-point')
   
   dataPoints.attr('transform', function(d){
-	  	x = xScale(d3.isoParse(d.date));
-	  	y = yScale(d.value);
+	  	let x = xScale(d3.isoParse(d.date));
+	  	let y = yScale(d.value);
 	  	return 'translate(' + x + ',' + y + ')'
 	  })
   	.style('stroke', 'none')
@@ -119,7 +121,9 @@ d3.json('mock/data.json', function(error, data) {
 			.classed('selected', false);
     d3.select('#updator').attr('class', 'hide');
 	});
-	dataPoints.on("click", function(d, i){
+
+	 dataPoints.on("click", function(d, i){
+		console.log("dataPoint clicked", i);
 		if (d3.event.defaultPrevented) return;
 		d3.event.stopPropagation();
 		d3.selectAll('g.data-point')
@@ -135,8 +139,9 @@ d3.json('mock/data.json', function(error, data) {
 			.attr('placeholder', d.value);
 	});
 
-// Attach the drag behavior to the data points
-	dataPoints.call(dataDrag);
+
+
+
 
 // Add #updator submit handler
 	d3.select('#updator')
@@ -165,13 +170,18 @@ d3.json('mock/data.json', function(error, data) {
 			d3.select(this)
 				.attr('class', 'hide');
 		});
+
+// Attach the drag behavior to the data points
 	dataPoints.call(dataDrag);
+
+
 });
 
 
 //Function: dragStart()
 //Makes the circle radius 15% larger while dragging
 function dragStart(d) {
+	console.log('dragStart');
   d3.event.sourceEvent.stopPropagation();
   d3.event.sourceEvent.preventDefault();
   d3.select(this)
@@ -185,6 +195,7 @@ function dragStart(d) {
 //the new data value and date, updating the text in the group,
 //and recalculating the fit line
 function dragging(d) {
+	console.log('dragging');
 	wasDraggedFLAG = true;
   d.x = d3.event.x;
   d.y = d3.event.y;
@@ -192,7 +203,7 @@ function dragging(d) {
      .attr("transform", 
       'translate(' + d.x + ',' +
                      d.y + ')');
-  date = xScale.invert(d3.event.x);
+  let date = xScale.invert(d3.event.x);
   d.date = d3.isoFormat(date);
   d.value = yScale.invert(d3.event.y);
   //update text
@@ -208,6 +219,7 @@ function dragging(d) {
 //Takes the new data point and sends it to the server(TODO) or console(CURRENT)
 //Reduces the circle radius back to its original size
 function dragEnd(d){
+	console.log('dragEnd');
 	d3.select(this)
 		.select('circle')
 		.attr('r',defaultRadius);
