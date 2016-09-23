@@ -165,6 +165,7 @@ d3.json('mock/data.json', function(error, data) {
 			d3.select(this)
 				.attr('class', 'hide');
 		});
+	dataPoints.call(dataDrag);
 });
 
 
